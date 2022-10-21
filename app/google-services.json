@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "289529094729",
+    "project_id": "dugnadsgjengen-c03bd",
+    "storage_bucket": "dugnadsgjengen-c03bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289529094729:android:203e08b04b9a098f845598",
+        "android_client_info": {
+          "package_name": "no.agens.dugnadsgjengen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289529094729-k9s4nalkljktqsbqugb8ej4det78rgff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAInFXHw6zruGBCJaGZfPhGmLww2DPJ5ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289529094729-k9s4nalkljktqsbqugb8ej4det78rgff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
