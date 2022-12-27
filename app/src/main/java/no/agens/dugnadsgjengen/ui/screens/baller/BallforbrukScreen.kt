@@ -1,4 +1,4 @@
-package no.agens.dugnadsgjengen.ui.screens.tasks
+package no.agens.dugnadsgjengen.ui.screens.baller
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,16 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import no.agens.dugnadsgjengen.ui.components.Loader
-import no.agens.dugnadsgjengen.ui.components.TasksListView
+import no.agens.dugnadsgjengen.ui.components.TeamsListView
 
 @Composable
-fun TasksScreen(
-    viewModel: TasksViewModel = viewModel()
+fun BallforbrukScreen(
+    viewModel: BallforbrukViewModel = viewModel()
 ) {
     val uiState = viewModel.state.collectAsState().value
 
     LaunchedEffect(Unit) {
-        viewModel.getTasks()
+        viewModel.getTeams()
     }
 
     if (uiState.isLoading) {
@@ -37,9 +37,11 @@ fun TasksScreen(
 
     } else {
         Column {
-            TasksListView(
-                tasks = uiState.tasks,
-                onTaskClicked = {}
+            TeamsListView(
+                teams = uiState.teams,
+                onChangeBallforbruk = { team, numShuttles ->
+                    viewModel.updateBallforbrukForTeams(team, numShuttles)
+                }
             )
         }
     }

@@ -9,19 +9,13 @@ import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
-import no.agens.dugnadsgjengen.ui.screens.addVoluntary.AddVoluntaryScreen
-import no.agens.dugnadsgjengen.ui.screens.overview.OverviewScreen
-import no.agens.dugnadsgjengen.ui.screens.settings.SettingsScreen
-import no.agens.dugnadsgjengen.ui.screens.tasks.TasksScreen
 
 interface DgNavDestination {
     val icon: ImageVector
     val selectedIcon: ImageVector
     val route: String
     val name: String
-    val screen: @Composable () -> Unit
 }
 
 object Overview : DgNavDestination {
@@ -29,15 +23,13 @@ object Overview : DgNavDestination {
     override val selectedIcon = Icons.Filled.Home
     override val route = "overview"
     override val name = "Oversikt"
-    override val screen: @Composable () -> Unit = { OverviewScreen() }
 }
 
-object Settings : DgNavDestination {
+object Baller : DgNavDestination {
     override val icon = Icons.Outlined.Settings
     override val selectedIcon = Icons.Filled.Settings
-    override val route = "settings"
-    override val name = "Innstillinger"
-    override val screen: @Composable () -> Unit = { SettingsScreen() }
+    override val route = "baller"
+    override val name = "Ballforbruk"
 }
 
 object Tasks : DgNavDestination {
@@ -45,7 +37,6 @@ object Tasks : DgNavDestination {
     override val selectedIcon = Icons.Filled.Check
     override val route = "tasks"
     override val name = "Oppgaver"
-    override val screen: @Composable () -> Unit = { TasksScreen() }
 }
 
 object AddVoluntary : DgNavDestination {
@@ -53,8 +44,21 @@ object AddVoluntary : DgNavDestination {
     override val selectedIcon = Icons.Filled.Add
     override val route = "add_voluntary"
     override val name = "Legg til frivillig"
-    override val screen: @Composable () -> Unit = { AddVoluntaryScreen() }
 }
 
+object AddTask : DgNavDestination {
+    override val icon = Icons.Outlined.Add
+    override val selectedIcon = Icons.Filled.Add
+    override val route = "add_task"
+    override val name = "Legg til oppgave"
+}
 
-val dgBottomBarDestinations = listOf(Overview, Tasks, Settings)
+object AddTeam : DgNavDestination {
+    override val icon = Icons.Outlined.Add
+    override val selectedIcon = Icons.Filled.Add
+    override val route = "add_team"
+    override val name = "Legg til lag"
+}
+
+val dgBottomBarDestinations = listOf(Overview, Tasks, Baller)
+val dgAllDestinations = listOf(Overview, Tasks, Baller, AddVoluntary, AddTask)
